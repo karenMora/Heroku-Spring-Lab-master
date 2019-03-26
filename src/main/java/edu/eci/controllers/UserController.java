@@ -41,12 +41,20 @@ public class UserController {
     @ResponseBody
     @RequestMapping(method = RequestMethod.PUT, consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> updateUser(@RequestBody User user){
-        throw new NotImplementedException();
+        try{
+            return new ResponseEntity<>(userServices.updateUser(user), HttpStatus.ACCEPTED);
+        }catch(Exception ex){
+            return new ResponseEntity<>(ex.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.DELETE, consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> deleteUser(@RequestBody UUID id){
-        throw new NotImplementedException();
+        try{
+            return new ResponseEntity<>(userServices.deleteUser(id), HttpStatus.ACCEPTED);
+        }catch(Exception ex){
+            return new ResponseEntity<>(ex.getMessage(),HttpStatus.BAD_REQUEST);
+        }
     }
 }

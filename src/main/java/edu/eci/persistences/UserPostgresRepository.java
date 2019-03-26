@@ -89,4 +89,15 @@ public class UserPostgresRepository implements IUserRepository {
             return new HikariDataSource(config);
         }
     }
+
+    @Override
+    public User deleteUserById(UUID id) {
+        User usuario = null;
+        return usuario;
+    }
+
+    @Override
+    public User updateUser(User user) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

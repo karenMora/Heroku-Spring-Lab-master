@@ -8,4 +8,6 @@ import java.util.UUID;
 @Repository
 public interface IUserRepository extends DAO<User, UUID> {
     User getUserByUserName(String userName);
+    User deleteUserById(UUID id);
+    User updateUser(User user);
 }
