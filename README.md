@@ -11,16 +11,18 @@ This tutorial will have you deploying a Java app in minutes. Hang on for a few m
 
 
 - TASK
-		- For all the commands executed on the terminal, take a screenshot and describe the output.
+
+	- For all the commands executed on the terminal, take a screenshot and describe the output.
+
 # Prepare the app
 In this step, you will prepare a sample application that’s ready to be deployed to Heroku. Download the sample app. You now have a functioning Git repository that contains a simple Java application. The application includes a pom.xml file, which is used by Java’s dependency manager, Maven.
 
 - TASK
 
-		- Execute the app in localhost. (Add screenshot)
-		- What the application do?
-		- Describe the REST services exposed by the application.
-		- For what purpose is the Procfile plaintext file? 
+	- Execute the app in localhost. (Add screenshot)
+	- What the application do?
+	- Describe the REST services exposed by the application.
+	- For what purpose is the Procfile plaintext file? 
 
 # Deploy the app
 In this step you’ll deploy the sample app to Heroku. First, create an app on Heroku, which prepares Heroku to receive your source code "heroku create".
@@ -30,7 +32,7 @@ In this step you’ll deploy the sample app to Heroku. First, create an app on H
 When you create an app, a Git remote (named heroku) is also created and associated with your local Git repository. By default, Heroku generates a random name for your app. You can pass a parameter to specify your own app name. "git push heroku master"
 
 ![""](img/2pushHerokuMaster.png)
-![""](img/3pushHerokuMasterpng)
+![""](img/3pushHerokuMaster.png)
 
 The application is now deployed. Ensure that at least one instance of the app is running "heroku ps:scale web=1".
 
@@ -66,9 +68,9 @@ Listing your app’s config vars will display the URL that your app is using to 
 
 The heroku pg command provides more in-depth information on your app’s Heroku Postgres databases:"heroku pg".
 
-		- TASK
-		- Change the Persistences to use the DB implementation.
-		- Complete the code to ensure that the DB persistence implementation is working properly and the services are still running.
+- TASK
+	- Change the Persistences to use the DB implementation.
+	- Complete the code to ensure that the DB persistence implementation is working properly and the services are still running.
 
 
 
