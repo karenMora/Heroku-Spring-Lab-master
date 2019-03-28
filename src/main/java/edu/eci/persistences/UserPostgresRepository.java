@@ -22,7 +22,7 @@ import java.util.UUID;
 @Component
 @Qualifier("UserPostgresRepository")
 public class UserPostgresRepository implements IUserRepository {
-
+    //aqui  va la url de posgrest 
     private String dbUrl = null;
 
     @Autowired
@@ -61,22 +61,51 @@ public class UserPostgresRepository implements IUserRepository {
 
     @Override
     public UUID save(User entity) {
-        return null;
+        String query = "INSERT INTO users(id,name) VAKUES (" + entity.getId().toString() + entity.getName()+ "," + entity.getName()+")";
+        try(Connection connection = dataSource.getConnection()){
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            return entity.getId();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        } 
     }
 
     @Override
     public void update(User entity) {
-
+        String query = "UPDATE * FROM users name = " + entity.getName()+ "" + entity.getId().toString();
+        try(Connection connection = dataSource.getConnection()){
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        } 
     }
 
     @Override
     public void delete(User o) {
-
+        String query = "DELETE * FROM users WHERE id = " + o.getId().toString() + "";
+        try(Connection connection = dataSource.getConnection()){
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        } 
     }
 
     @Override
     public void remove(Long id) {
-
+        String query = "DELETE * FROM users WHERE id = " + id.toString()+ "";
+        try(Connection connection = dataSource.getConnection()){
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }   
     }
 
     @Bean
@@ -88,16 +117,5 @@ public class UserPostgresRepository implements IUserRepository {
             config.setJdbcUrl(dbUrl);
             return new HikariDataSource(config);
         }
-    }
-
-    @Override
-    public User deleteUserById(UUID id) {
-        User usuario = null;
-        return usuario;
-    }
-
-    @Override
-    public User updateUser(User user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -12,6 +12,6 @@ public interface IUserServices {
     User create(User user);
     User get(UUID id);
     User get(String name);
-    User updateUser(User user);
-    User deleteUser(UUID id);
+    void update(User user);
+    void delete(User user);
 }

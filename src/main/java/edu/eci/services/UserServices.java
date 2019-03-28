@@ -44,12 +44,12 @@ public class UserServices implements IUserServices{
     }
 
     @Override
-    public User updateUser(User user) {
-        return userRepository.updateUser(user);
+    public void update(User user) {
+        userRepository.update(user);
     }
 
     @Override
-    public User deleteUser(UUID id) {
-        return userRepository.deleteUserById(id);
+    public void delete(User user) {
+        userRepository.delete(user);
     }
 }
